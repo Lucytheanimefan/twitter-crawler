@@ -1,0 +1,4 @@
+venv/
+venv/*
+tweets.txt
+sequential.py

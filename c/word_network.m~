@@ -1,0 +1,15 @@
+
+
+% Create undirected graph using adjacency matrix A
+nodenames = {'V1','V2','V3'};
+
+% Create empty graph
+G = graph;
+
+s = [1 2 1];
+t = [2 3 3];
+G = addedge(G,s,t)
+
+(A, nodenames);
+
+

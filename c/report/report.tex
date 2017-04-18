@@ -1,0 +1,54 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{forloop}
+\usepackage{pgfmath,pgffor}
+\renewcommand{\thesubsection}{(\alph{subsection})}
+\DeclareMathOperator{\pr}{P}
+\newcommand{\cupdot}{\ensuremath{\mathaccent\cdot\cup}}
+\setlength\parindent{0pt}
+%SetFonts
+
+%SetFonts
+
+
+\title{HW1}
+\author{Minwoo Kim(0714929)}
+\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\section{}
+
+maximize
+
+\begin{flalign*}
+&\max \pr(t_0,\cdots,t_{n-1} | w_0,\cdots w_{n-1}) =\max \frac{\pr(t_0,\cdots ,t_{n-1})}{\pr(w_0,\cdots ,w_{n-1})} &\\
+&= \max \pr(t_0,\cdots, t_{n-1}, w_0,\cdots,w_{n-1})
+%&= \max \pr(w_0,\cdots ,w_{n-1} | t_0,\cdots, t_{n-1})\pr(t_0,\cdots ,t_{n-1})
+\end{flalign*}
+
+Define
+\begin{flalign*}
+&\delta_0(S) = \pr(t_0 = S, w_0)= \pr(t_0 = S)\pr(w_0 | t_0 = S) &\\
+&\delta_1(S) = \max_V \pr(t_1 = S, t_0 = V, w_0, w_1) &\\
+& \qquad =\max_V \pr(w_1 | t_1 = S)\pr(t_1 = S| t_0 = V)\pr(w_0 | t_0 =V) \pr(t_0 = V) &\\
+& \qquad =\pr(w_1 | t_1 = S)\max_V \pr(t_1 = S| t_0 = V)\delta_0(V) &\\
+&\delta_2(S) = \max_{V_0, V_1}\pr(t_2 = S, t_0 = V_0, t_1 = V_1, w_0, w_1, w_2) &\\
+& \qquad  = \pr(w_2 | t_2 = S)\max_{V_1}\pr(t_2 =S| t_1 = V_1)\delta_1(V_1) &\\
+&\delta_3(S) =  \pr(w_3 | t_3 = S) \max_{V_2} \pr(t_3 =S | t_2 = V_2) \delta_2(V_2)
+\end{flalign*}
+, where we used markov property.
+
+
+Modified Viterbi : \newline
+Initialization : 
+
+\end{document}  
